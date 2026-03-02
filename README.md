@@ -1,16 +1,118 @@
-# React + Vite
+# 🛍️ MyStore – E-commerce Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern e-commerce web application built with React and Vite.  
+This project demonstrates authentication, profile management, cart functionality, and protected routing using localStorage.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Live Demo
 
-## React Compiler
+- http://mystore-ecomm.vercel.app
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📌 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 🔐 Authentication
+- User Registration
+- Login & Logout
+- Session management with expiration
+- Protected routes
+- Redirect on session expiry
+
+### 👤 Profile Management
+- View user profile
+- Update name & email
+- Update password
+- Automatic logout after password change
+
+### 🛒 Cart System
+- Add to cart
+- Remove from cart
+- Update quantity
+- Prevent quantity below 1
+- Cart data persisted in localStorage
+- Dynamic total amount calculation
+
+### 🎨 UI & UX
+- Fully responsive layout
+- Clean minimal design
+- Animated loader
+- Modern cart badge indicator
+- Smooth hover transitions
+
+---
+
+## 🛠️ Tech Stack
+
+- React
+- Vite
+- React Router DOM
+- Context API
+- Tailwind CSS
+- LocalStorage for persistence
+
+---
+
+## 🔄 State Management
+
+- Cart handled using React Context API
+- User session stored in localStorage
+- Registered user stored separately
+- Session expiration handled manually
+
+---
+
+## 🧠 Learning Objectives
+
+This project demonstrates:
+
+- Client-side authentication logic
+- State synchronization between session and stored user
+- Context API usage
+- Route protection
+- Clean UI structuring
+- Basic cart architecture logic
+
+---
+
+## ⚠️ Important Note
+
+This project uses localStorage to store user credentials.
+
+⚠ This is NOT secure for production use.  
+In real-world applications:
+- Passwords should be hashed
+- Authentication should be handled by a backend
+- Sensitive data should never be stored in localStorage
+
+---
+
+## 📦 Installation
+
+```bash
+git clone <your-repo-link>
+cd project-folder
+npm install
+npm run dev
+```
+
+---
+
+## 👩‍💻 Author
+
+Abhay Panchal  
+
+---
+
+## ✨ Future Improvements
+
+- Backend integration with Express & MongoDB
+- JWT authentication
+- Multi-user support
+- Order history
+- Payment gateway integration
+- Admin dashboard
+
+---
+
