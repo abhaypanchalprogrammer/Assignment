@@ -163,7 +163,7 @@ const Profile = () => {
             </div>
 
             <div>
-              <button className="mt-8 px-6 py-3 bg-black text-white rounded-full text-sm tracking-wide hover:opacity-80 transition">
+              <button onClick={()=>navigate("/home")} className="mt-8 px-6 py-3 bg-black text-white rounded-full text-sm tracking-wide hover:opacity-80 transition">
                 Browse Collection
               </button>
             </div>
