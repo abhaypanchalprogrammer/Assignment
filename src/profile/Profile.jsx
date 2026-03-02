@@ -30,6 +30,11 @@ const Profile = () => {
   const handleUpdate = (e) => {
     e.preventDefault();
     const storedSession = JSON.parse(localStorage.getItem("session"));
+    const storedUser = JSON.parse(localStorage.getItem("registeredUser"));
+    if (!storedSession || !storedUser) {
+      alert("user not found");
+      return;
+    }
     const updateSession = {
       ...storedSession,
       user: {
@@ -38,7 +43,16 @@ const Profile = () => {
         email: updateData.email,
       },
     };
+    const updateRegisteredUser = {
+      ...storedUser,
+      name: updateData.name,
+      email: updateData.email,
+    };
     localStorage.setItem("session", JSON.stringify(updateSession));
+    localStorage.setItem(
+      "registeredUser",
+      JSON.stringify(updateRegisteredUser),
+    );
     setUser(updateSession.user);
 
     alert("Profile updated successfully!");
@@ -50,20 +64,9 @@ const Profile = () => {
     e.preventDefault();
 
     const storedUser = JSON.parse(localStorage.getItem("registeredUser"));
-    const passwordUpdate = (e) => {
-      e.preventDefault();
-
-      const storedUser = JSON.parse(localStorage.getItem("registeredUser"));
-
-      const updatedUser = {
-        ...storedUser,
-        password: updateData.password,
-      };
-
-      localStorage.setItem("registeredUser", JSON.stringify(updatedUser));
-      localStorage.removeItem("session");
-      alert("Password updated successfully!");
-    };
+    if (!storedUser) {
+      alert("user not found");
+    }
     const updatedUser = {
       ...storedUser,
       password: updateData.password,
@@ -116,31 +119,36 @@ const Profile = () => {
               <p className="text-lg font-medium text-gray-900">
                 {new Date().toLocaleDateString()}
               </p>
-              <button
-                onClick={clickToOpen}
-                className="mt-8 px-6 py-3 bg-black text-white rounded-full text-sm tracking-wide hover:opacity-80 transition"
-              >
-                Update Password
-              </button>
-              {isEditing && (
-                <>
-                  <input
-                    type="email"
-                    name="email"
-                    value={updateData.password}
-                    onChange={(e) =>
-                      setUpdateData({ ...updateData, password: e.target.value })
-                    }
-                    className="w-full border border-gray-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
-                  />
-                  <button
-                    onClick={passwordUpdate}
-                    className="mt-8 px-6 py-3 bg-black text-white rounded-full text-sm tracking-wide hover:opacity-80 transition"
-                  >
-                    Update Password
-                  </button>
-                </>
-              )}
+              <div className="flex flex-col gap-6">
+                <button
+                  onClick={clickToOpen}
+                  className="mt-8 px-6 py-3 bg-black text-white rounded-full text-sm tracking-wide hover:opacity-80 transition"
+                >
+                  Update Password
+                </button>
+                {isEditing && (
+                  <>
+                    <input
+                      type="email"
+                      name="email"
+                      value={updateData.password}
+                      onChange={(e) =>
+                        setUpdateData({
+                          ...updateData,
+                          password: e.target.value,
+                        })
+                      }
+                      className="w-full border border-gray-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                    />
+                    <button
+                      onClick={passwordUpdate}
+                      className=" px-6 py-3 bg-black text-white rounded-full text-sm tracking-wide hover:opacity-80 transition"
+                    >
+                      Update Password
+                    </button>
+                  </>
+                )}
+              </div>
             </div>
           </div>
 
