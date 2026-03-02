@@ -3,9 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
   const [user, setUser] = useState(null);
+  const [isEditing, setIsEditing] = useState(false);
   const [updateData, setUpdateData] = useState({
     name: "",
     email: "",
+    password: "",
   });
   const navigate = useNavigate();
   useEffect(() => {
@@ -40,6 +42,37 @@ const Profile = () => {
     setUser(updateSession.user);
 
     alert("Profile updated successfully!");
+  };
+  const clickToOpen = () => {
+    setIsEditing(true);
+  };
+  const passwordUpdate = (e) => {
+    e.preventDefault();
+
+    const storedUser = JSON.parse(localStorage.getItem("registeredUser"));
+    const passwordUpdate = (e) => {
+      e.preventDefault();
+
+      const storedUser = JSON.parse(localStorage.getItem("registeredUser"));
+
+      const updatedUser = {
+        ...storedUser,
+        password: updateData.password,
+      };
+
+      localStorage.setItem("registeredUser", JSON.stringify(updatedUser));
+      localStorage.removeItem("session");
+      alert("Password updated successfully!");
+    };
+    const updatedUser = {
+      ...storedUser,
+      password: updateData.password,
+    };
+
+    localStorage.setItem("registeredUser", JSON.stringify(updatedUser));
+
+    alert("Password updated successfully!");
+    navigate("/login");
   };
 
   const goBack = () => {
@@ -83,6 +116,31 @@ const Profile = () => {
               <p className="text-lg font-medium text-gray-900">
                 {new Date().toLocaleDateString()}
               </p>
+              <button
+                onClick={clickToOpen}
+                className="mt-8 px-6 py-3 bg-black text-white rounded-full text-sm tracking-wide hover:opacity-80 transition"
+              >
+                Update Password
+              </button>
+              {isEditing && (
+                <>
+                  <input
+                    type="email"
+                    name="email"
+                    value={updateData.password}
+                    onChange={(e) =>
+                      setUpdateData({ ...updateData, password: e.target.value })
+                    }
+                    className="w-full border border-gray-200 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-black"
+                  />
+                  <button
+                    onClick={passwordUpdate}
+                    className="mt-8 px-6 py-3 bg-black text-white rounded-full text-sm tracking-wide hover:opacity-80 transition"
+                  >
+                    Update Password
+                  </button>
+                </>
+              )}
             </div>
           </div>
 
@@ -96,9 +154,11 @@ const Profile = () => {
               </ul>
             </div>
 
-            <button className="mt-8 px-6 py-3 bg-black text-white rounded-full text-sm tracking-wide hover:opacity-80 transition">
-              Browse Collection
-            </button>
+            <div>
+              <button className="mt-8 px-6 py-3 bg-black text-white rounded-full text-sm tracking-wide hover:opacity-80 transition">
+                Browse Collection
+              </button>
+            </div>
           </div>
         </div>
         <div className="mt-10 space-y-4">

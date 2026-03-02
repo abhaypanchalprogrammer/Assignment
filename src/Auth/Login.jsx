@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Button from "../shared/components/Button.jsx";
 const Login = () => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);

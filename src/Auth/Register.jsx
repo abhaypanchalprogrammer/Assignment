@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import Button from "../shared/components/Button.jsx";
 
 const Register = () => {
   const [error, setError] = useState("");
@@ -112,7 +111,6 @@ const Register = () => {
             </button>
           </form>
 
-          {/* Footer */}
           <p className="text-sm text-gray-500 text-center mt-8">
             Already have an account?{" "}
             <Link
