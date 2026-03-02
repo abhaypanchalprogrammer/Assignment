@@ -8,7 +8,7 @@ export const ProductProvider = ({ children }) => {
   const fetchProduct = async () => {
     setLoading(true);
     try {
-      const res = await fetch("https://fakestoreapi.com/products");
+      const res = await fetch(import.meta.env.VITE_API_URL);
       const data = await res.json();
       setProduct(data);
     } catch (err) {

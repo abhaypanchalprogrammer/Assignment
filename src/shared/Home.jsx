@@ -5,9 +5,11 @@ import Nav from "./components/Nav.jsx";
 import MainSection from "../home/MainSection.jsx";
 import ProductSection from "../home/ProductSection.jsx";
 import Footer from "./components/Footer.jsx";
+import Loader from "./components/Loader.jsx";
 
 const Home = () => {
   const { product, loading } = useProduct();
+  const { loading: loader } = useProduct();
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
   useEffect(() => {
@@ -30,6 +32,8 @@ const Home = () => {
     localStorage.removeItem("session");
     navigate("/login");
   };
+
+  if (loader) return <Loader />;
   return (
     <div>
       <div className="min-h-screen bg-gray-100">

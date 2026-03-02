@@ -5,7 +5,6 @@ const Footer = () => {
     <footer className="border-t border-gray-100 mt-32">
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Brand Section */}
           <div className="space-y-4">
             <h2 className="text-lg font-semibold tracking-tight">MyStore</h2>
             <p className="text-sm text-gray-500 leading-relaxed max-w-sm">
@@ -14,7 +13,6 @@ const Footer = () => {
             </p>
           </div>
 
-          {/* Newsletter */}
           <div>
             <h3 className="text-sm font-medium mb-4">Stay Updated</h3>
 
@@ -35,7 +33,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Line */}
         <div className="mt-16 pt-8 border-t border-gray-100 text-sm text-gray-400">
           © {new Date().getFullYear()} MyStore. Built with attention to detail.
         </div>
