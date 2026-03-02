@@ -1,6 +1,8 @@
 import React from "react";
 import image from "../assets/image.png";
-const MainSection = () => {
+import { useNavigate } from "react-router-dom";
+const Hero = () => {
+  const navigate = useNavigate();
   return (
     <div>
       <section className="relative overflow-hidden py-32">
@@ -24,7 +26,12 @@ const MainSection = () => {
               </p>
 
               <div className="flex items-center gap-6 pt-4">
-                <button className="px-8 py-3 bg-black border text-white rounded-full hover:bg-white hover:text-black hover:border transition">
+                <button
+                  onClick={() => {
+                    navigate("/product");
+                  }}
+                  className="px-8 py-3 bg-black border text-white rounded-full hover:bg-white hover:text-black hover:border transition"
+                >
                   Explore Collection
                 </button>
 
@@ -50,4 +57,4 @@ const MainSection = () => {
   );
 };
 
-export default MainSection;
+export default Hero;

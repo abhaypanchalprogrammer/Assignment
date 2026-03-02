@@ -1,8 +1,10 @@
 import React from "react";
 import { useCart } from "../shared/context/CartContext.jsx";
+import { useProduct } from "../shared/context/ProductContext.jsx";
 
-const ProductSection = ({ product, loading }) => {
+const ProductSection = () => {
   const { addToCart } = useCart();
+  const { product, loading } = useProduct();
   return (
     <section className="relative py-28">
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50 -z-10"></div>

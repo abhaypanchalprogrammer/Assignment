@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useProduct } from "./context/ProductContext.jsx";
 import Nav from "./components/Nav.jsx";
-import MainSection from "../home/MainSection.jsx";
+import MainSection from "../home/Hero.jsx";
 import ProductSection from "../home/ProductSection.jsx";
 import Footer from "./components/Footer.jsx";
 import Loader from "./components/Loader.jsx";
+import Wrapper from "./Wrapper.jsx";
 
-const Home = () => {
-  const { product, loading } = useProduct();
+const Container = () => {
   const { loading: loader } = useProduct();
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
@@ -38,12 +38,11 @@ const Home = () => {
     <div>
       <div className="min-h-screen bg-gray-100">
         <Nav handleLogout={handleLogout} user={user} />
-        <MainSection />
-        <ProductSection product={product} loading={loading} />
+        <Outlet />
         <Footer />
       </div>
     </div>
   );
 };
 
-export default Home;
+export default Container;
