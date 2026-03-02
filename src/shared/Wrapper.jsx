@@ -6,7 +6,7 @@ import Profile from "../profile/Profile.jsx";
 import Cart from "../cart/Cart.jsx";
 import ProductSection from "../home/ProductSection.jsx";
 import Hero from "../home/Hero.jsx";
-import Container from "./container.jsx";
+import Container from "./Container.jsx";
 const Wrapper = () => {
   return (
     <div>

@@ -2,11 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
 import { useProduct } from "./context/ProductContext.jsx";
 import Nav from "./components/Nav.jsx";
-import MainSection from "../home/Hero.jsx";
-import ProductSection from "../home/ProductSection.jsx";
 import Footer from "./components/Footer.jsx";
 import Loader from "./components/Loader.jsx";
-import Wrapper from "./Wrapper.jsx";
 
 const Container = () => {
   const { loading: loader } = useProduct();
