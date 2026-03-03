@@ -25,7 +25,7 @@ const Nav = ({ handleLogout, user }) => {
             Home
           </Link>
           <Link to="/product" className="hover:underline active:text-black">
-            About
+            Products
           </Link>
 
           <div onClick={goToCart} className=" text-2xl cursor-pointer">
